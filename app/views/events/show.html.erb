@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="card">
+  <div class="card-header">
+    <h3> Run Details </h3>
+  </div>
+  <div class="card-body">
+    <%= render @event %>
+    <div>
+    
+      <%= link_to "Edit this event", edit_event_path(@event), class:'btn btn-secondary' %>
+      <%= link_to "Back to events", events_path, class:'btn btn-secondary' %>
+    
+      <%= link_to "Destroy this event", @event, method: :delete, class:'btn btn-danger' %>
+    </div>
+  </div>
+</div>

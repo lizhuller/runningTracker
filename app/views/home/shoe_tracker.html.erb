@@ -1,0 +1,22 @@
+<div class="card">
+  <h3 class="card-header text-center">Time Until Shoe Replacement</h3>
+  <div class="card-body">
+    <h5 class="card-title">Total Miles per Shoe</h5>
+    <ul> <% @total_miles_per_shoe.each do |shoe, miles| %> 
+      <li><strong><%= shoe %>:</strong>
+       <%= miles %> miles</li> 
+       <% value = miles/500 %>
+       <% percentage = [(miles / 500.0) * 100, 100].min.round(2) %>
+       <% if percentage < 60 %>
+          <div class="progress" style="height: 100px;">
+            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= percentage%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= percentage %>%</div>
+          </div>
+        <% else %>
+          <div class="progress" style="height: 100px;">
+            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= percentage%>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= percentage %>%</div>
+          </div>
+        <%end%>
+        </br>
+    <% end %> </ul>
+  </div>
+</div>

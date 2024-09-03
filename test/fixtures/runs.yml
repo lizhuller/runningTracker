@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2024-08-31 19:52:07
+  miles: 1.5
+  hours: 1
+  minutes: 1
+  shoe: MyString
+
+two:
+  date: 2024-08-31 19:52:07
+  miles: 1.5
+  hours: 1
+  minutes: 1
+  shoe: MyString
