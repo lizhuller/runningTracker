@@ -1,15 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="card">
-  <div class="card-header", style="background-color: pink">
+  <div class="card-header custom-pink-background">
     <h3> Run Details </h3>
   </div>
   <div class="card-body">
     <%= render @event %>
     <div>
     
-      <%= link_to "Edit this event", edit_event_path(@event), class:"btn btn-light", style:"background-color: pink" %>
-      <%= link_to "Back to events", events_path, class:"btn btn-light", style:"background-color: pink" %>
+      <%= link_to "Edit this event", edit_event_path(@event), class:"btn btn-light custom-pink-background" %>
+      <%= link_to "Back to events", events_path, class:"btn btn-light custom-pink-background" %>
     
       <%= link_to "Destroy this event", @event, method: :delete, class:'btn btn-danger' %>
     </div>
