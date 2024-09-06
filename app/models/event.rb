@@ -5,7 +5,7 @@ class Event < ApplicationRecord
     belongs_to :user
 
     def mile_time
-        total_minutes = (hours.to_i * 60) + minutes.to_i
+        total_minutes = total_time_in_minutes
         return "00:00:00" if miles.zero?
         total_seconds_per_mile = (total_minutes * 60) / miles 
         hours_per_mile = total_seconds_per_mile / 3600 
@@ -15,7 +15,7 @@ class Event < ApplicationRecord
     end
 
     def mile_time_in_minutes
-        total_minutes = ((hours.to_i * 60) + minutes.to_i)
+        total_minutes = total_time_in_minutes
         return 0 if miles.zero?
         minutes_per_mile = total_minutes/miles
     end
