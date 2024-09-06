@@ -14,6 +14,16 @@ class Event < ApplicationRecord
         format("%02d:%02d:%02d", hours_per_mile, minutes_per_mile, seconds_per_mile)
     end
 
+    def mile_time_in_minutes
+        total_minutes = ((hours.to_i * 60) + minutes.to_i)
+        return 0 if miles.zero?
+        minutes_per_mile = total_minutes/miles
+    end
+
+    def total_time_in_minutes
+        total_minutes = ((hours.to_i * 60) + minutes.to_i)
+    end
+
     def self.total_miles_per_shoe(user_id)
         where(user_id: user_id).group(:shoe).sum(:miles) 
     end

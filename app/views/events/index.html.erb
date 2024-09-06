@@ -36,15 +36,20 @@
                     <td><%= link_to "Edit this event", edit_event_path(event) %></td>
                     <td><%= button_to "Destroy this event", event, method: :delete, class:'btn btn-sm btn-outline-danger' %></td>
                   </tr>
+                  
                 <% end %>
               <% end %>
             </div>
           </tbody>
         </table>
-
+        <%= line_chart [ {name: "Average Minutes Per Mile", data: current_user.events.map { |event| [event.miles, event.mile_time_in_minutes] }}, {name: "Total Minutes", data: current_user.events.map { |event| [event.miles, event.total_time_in_minutes] }} ] %>
         <%= link_to "Add Run", new_event_path, class:"btn btn-light custom-pink-background" %>
     </div>
 </div>
+
+
+
+
 <% end %>
 
 

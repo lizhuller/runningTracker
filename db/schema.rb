@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_02_163055) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_06_133208) do
   create_table "events", force: :cascade do |t|
     t.datetime "date"
     t.float "miles"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_02_163055) do
     t.datetime "updated_at", null: false
     t.time "mile_time"
     t.integer "user_id"
+    t.integer "mile_time_in_minutes"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
