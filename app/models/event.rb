@@ -1,11 +1,11 @@
 class Event < ApplicationRecord
-    validates :hours, :minutes, presence: true, numericality: { greater_than_or_equal_to: 0 } 
+    validates :hours, :minutes, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :miles, numericality: { greater_than: 0 }
 
     belongs_to :user
 
-    def mile_time 
-        total_minutes = (hours.to_i * 60) + minutes.to_i 
+    def mile_time
+        total_minutes = (hours.to_i * 60) + minutes.to_i
         return "00:00:00" if miles.zero?
         total_seconds_per_mile = (total_minutes * 60) / miles 
         hours_per_mile = total_seconds_per_mile / 3600 
