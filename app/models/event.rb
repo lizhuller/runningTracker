@@ -27,4 +27,24 @@ class Event < ApplicationRecord
     def self.total_miles_per_shoe(user_id)
         where(user_id: user_id).group(:shoe).sum(:miles) 
     end
+
+    def self.event_with_lowest_mile_time(user_id)
+        where(user_id: user_id).min_by(&:mile_time_in_minutes)
+    end
+
+    def self.event_with_lowest_mile_time_this_month(user_id)
+        where(user_id: user_id, date: Time.current.beginning_of_month..Time.current.end_of_month).min_by(&:mile_time_in_minutes)
+    end
+
+    def self.longest_run(user_id)
+        where(user_id: user_id).max_by(&:miles)
+    end
+
+    def self.longest_run_this_month(user_id)
+        where(user_id: user_id, date: Time.current.beginning_of_month..Time.current.end_of_month).max_by(&:miles)
+    end
+
+    def start_time
+        date
+    end
 end
