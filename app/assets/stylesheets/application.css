@@ -15,3 +15,7 @@
  */
 
  .custom-pink-background { background-color: pink; } 
+
+ .calendar-card { height: 200px; }
+
+ .padded-top { padding-top: 56px; }

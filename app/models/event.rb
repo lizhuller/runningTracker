@@ -44,6 +44,32 @@ class Event < ApplicationRecord
         where(user_id: user_id, date: Time.current.beginning_of_month..Time.current.end_of_month).max_by(&:miles)
     end
 
+    def self.total_miles_run(user_id)
+        where(user_id: user_id).sum(:miles)
+    end
+
+    def self.total_miles_run_this_month(user_id)
+        where(user_id: user_id, date: Time.current.beginning_of_month..Time.current.end_of_month).sum(:miles)
+    end
+
+    def self.total_time_run(user_id)
+        total_minutes = where(user_id: user_id).sum(&:total_time_in_minutes)
+        total_seconds = total_minutes * 60 
+        hours = total_seconds / 3600 
+        minutes = (total_seconds % 3600) / 60 
+        seconds = total_seconds % 60 
+        format("%02d:%02d:%02d", hours, minutes, seconds)
+    end
+
+    def self.total_time_run_this_month(user_id)
+        total_minutes = where(user_id: user_id, date: Time.current.beginning_of_month..Time.current.end_of_month).sum(&:total_time_in_minutes)
+        total_seconds = total_minutes * 60 
+        hours = total_seconds / 3600 
+        minutes = (total_seconds % 3600) / 60 
+        seconds = total_seconds % 60 
+        format("%02d:%02d:%02d", hours, minutes, seconds)
+    end
+
     def start_time
         date
     end
